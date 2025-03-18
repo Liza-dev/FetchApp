@@ -1,5 +1,6 @@
 package com.example.fetchapp
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -21,7 +22,7 @@ class ItemAdapter : RecyclerView.Adapter<ItemAdapter.GroupViewHolder>() {
         val listId = groupedItems.keys.elementAt(position)
         val itemsInGroup = groupedItems[listId]
 
-        holder.binding.txtListID.text = "List ID: $listId"
+        "List ID: $listId".also { holder.binding.txtListID.text = it }
         val itemNames = itemsInGroup?.joinToString("\n") { "- ${it.name}" } ?: ""
         holder.binding.txtItem.text = itemNames
     }
@@ -30,6 +31,7 @@ class ItemAdapter : RecyclerView.Adapter<ItemAdapter.GroupViewHolder>() {
         return groupedItems.size
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun updateData(newGroupedItems: Map<String, List<Item>>) {
         groupedItems = newGroupedItems
         this.notifyDataSetChanged()

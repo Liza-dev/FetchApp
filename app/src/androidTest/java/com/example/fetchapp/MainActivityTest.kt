@@ -7,7 +7,6 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.fetchapp.ui.MainActivity
-import com.example.fetchapp.viewmodel.ItemViewModel
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
