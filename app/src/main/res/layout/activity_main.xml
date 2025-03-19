@@ -4,24 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:fitsSystemWindows="true"
     tools:context=".ui.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:fitsSystemWindows="true">
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="false">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
-            app:titleTextColor="@color/black"
-            android:layout_width = "match_parent"
-            android:layout_height = "?attr/actionBarSize" />
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:titleTextColor="@color/black" />
 
-  </com.google.android.material.appbar.AppBarLayout>
+        <include
+            android:id="@+id/content"
+            layout="@layout/content_main" />
 
-  <include
-      android:id="@+id/content"
-      layout="@layout/content_main"/>
+    </com.google.android.material.appbar.AppBarLayout>
 
-  </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

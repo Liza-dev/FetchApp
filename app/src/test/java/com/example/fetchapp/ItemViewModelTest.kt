@@ -55,18 +55,18 @@ class ItemViewModelTest {
     @Test
     fun testFetchItem() = runTest {
         val mockItems = listOf(
-            Item("1", "1", "Item A"),
-            Item("2", "2", "Item B"),
-            Item("3", "1", "Item C"),
-            Item("4", "2", null),
-            Item("5", "1", ""),
-            Item("6", "3", "Item D")
+            Item("1", 1, "Item A"),
+            Item("2", 2, "Item B"),
+            Item("3", 1, "Item C"),
+            Item("4", 2, null),
+            Item("5", 1, ""),
+            Item("6", 3, "Item D")
         )
         val expectedItems = listOf(
-            Item("1", "1", "Item A"),
-            Item("3", "1", "Item C"),
-            Item("2", "2", "Item B"),
-            Item("6", "3", "Item D")
+            Item("1", 1, "Item A"),
+            Item("3", 1, "Item C"),
+            Item("2", 2, "Item B"),
+            Item("6", 3, "Item D")
         )
         `when`(repository.getItems()).thenReturn(Response.success(mockItems))
         viewModel.fetchItems()

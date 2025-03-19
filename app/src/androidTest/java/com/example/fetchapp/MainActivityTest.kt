@@ -18,8 +18,8 @@ class MainActivityTest {
     val activityRule = ActivityScenarioRule(MainActivity::class.java)
 
     @Test
-    fun testRecylerViewIsDisplayed() {
-        onView(withId(R.id.recylerview))
+    fun testExpandableListViewIsDisplayed() {
+        onView(withId(R.id.expandableListView))
             .check(matches(isDisplayed()))
 
     }

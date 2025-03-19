@@ -3,18 +3,17 @@ package com.example.fetchapp.ui
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fetchapp.databinding.ActivityMainBinding
 import com.example.fetchapp.viewmodel.ItemViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import androidx.activity.viewModels
-import com.example.fetchapp.ItemAdapter
+import com.example.fetchapp.adapter.ItemExpandableListAdapter
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var itemAdapter: ItemAdapter
+    private lateinit var itemAdapter: ItemExpandableListAdapter
     private val viewModel: ItemViewModel by viewModels()
 
 
@@ -38,11 +37,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerView() {
-        itemAdapter = ItemAdapter()
-        binding.content.recylerview.apply {
-            layoutManager = LinearLayoutManager(this@MainActivity)
-            adapter = itemAdapter
-        }
+        itemAdapter = ItemExpandableListAdapter(this)
+        binding.content.expandableListView.setAdapter(itemAdapter)
     }
 
 
